@@ -4,8 +4,19 @@ class ToDoFooter extends Component {
   render() {
     return (
       <div className={`todo__footer`}>
-        <input type="text" />
-        <button>ADD</button>
+        <label htmlFor="newTask">
+          Type the task, then press "Enter" key to add new task in To Do list
+        </label>
+        <input
+          id={`newTask`}
+          type="text"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              this.props.addNewTask(e.target.value);
+              e.target.value = "";
+            }
+          }}
+        />
       </div>
     );
   }

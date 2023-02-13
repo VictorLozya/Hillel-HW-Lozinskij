@@ -13,6 +13,7 @@ class ToDoBody extends Component {
           {this.props.todos.map((item) => {
             return (
               <ListItem
+                key={item.id}
                 item={item}
                 id={item.id}
                 statusUpgrade={this.props.statusUpgrade}

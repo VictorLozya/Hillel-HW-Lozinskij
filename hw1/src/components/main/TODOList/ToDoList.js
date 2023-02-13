@@ -6,36 +6,28 @@ class ToDoList extends Component {
   constructor() {
     super();
     this.state = {
-      todos: [
-        {
-          id: 1,
-          task: "wash dishes",
-          completed: false,
-        },
-        {
-          id: 2,
-          task: "wash dishes",
-          completed: false,
-        },
-        {
-          id: 3,
-          task: "wash dishes",
-          completed: false,
-        },
-        {
-          id: 4,
-          task: "wash dishes",
-          completed: false,
-        },
-        {
-          id: 5,
-          task: "fix this shit",
-          completed: true,
-        },
-      ],
+      taskConstruct: {
+        id: Number,
+        task: String,
+        completed: false,
+      },
+      todos: [],
     };
   }
+  componentDidMount() {
+    let todoList = JSON.parse(localStorage.getItem("TODO_list"));
 
+    if (todoList) {
+      this.setState({
+        todos: todoList,
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const todoList = this.state.todos;
+    localStorage.setItem("TODO_list", JSON.stringify(todoList));
+  }
   statusUpgrade = (newValue, id) => {
     const newTodos = this.state.todos.map((item) => {
       if (item.id === id) {
@@ -49,12 +41,32 @@ class ToDoList extends Component {
     });
   };
 
+  addNewTask = (text) => {
+    const newTodos = [...this.state.todos];
+    newTodos.push({
+      ...this.state.taskConstruct,
+      id: newTodos.length + 1,
+      task: text,
+    });
+    this.setState({
+      todos: newTodos,
+    });
+  };
+
   render() {
     return (
       <div className={`todo`}>
         <h2 className="todo__head">Task List</h2>
-        <ToDoBody todos={this.state.todos} statusUpgrade={this.statusUpgrade} />
-        <ToDoFooter />
+        {this.state.todos.length !== 0 ? (
+          <ToDoBody
+            todos={this.state.todos}
+            statusUpgrade={this.statusUpgrade}
+          />
+        ) : (
+          <h2 className="todo__alert">You didn't add any tasks</h2>
+        )}
+        {/*<ToDoBody todos={this.state.todos} statusUpgrade={this.statusUpgrade} />*/}
+        <ToDoFooter addNewTask={this.addNewTask} />
       </div>
     );
   }
