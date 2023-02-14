@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ToDoBody from "./ToDoBody/ToDoBody";
 import ToDoFooter from "./ToDoFooter/ToDoFooter";
+import "./ToDoList.scss";
 
 class ToDoList extends Component {
   constructor() {

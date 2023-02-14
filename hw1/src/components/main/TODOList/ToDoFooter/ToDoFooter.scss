@@ -1,0 +1,23 @@
+.todo{
+  &__footer{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 10px;
+  }
+  &__sub{
+    font-size: 12px;
+  }
+  &__input{
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    border: 2px solid rgb(91, 203, 33);
+    &:focus{
+      outline: none !important;
+      border: 2px solid rgb(243, 0, 226);
+
+    }
+  }
+}
