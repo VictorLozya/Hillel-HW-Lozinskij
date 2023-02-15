@@ -7,8 +7,13 @@ class ToDoFooter extends Component {
     this.state = {
       inputValue: "",
     };
+    this.handleChange = this.handleChange.bind(this)
   }
-
+handleChange(event){
+    this.setState({
+      inputValue: event.target.value
+    })
+}
   render() {
     return (
       <div className={`todo__footer`}>
@@ -20,16 +25,16 @@ class ToDoFooter extends Component {
             id={`newTask`}
             type="text"
             className={"todo__input"}
+            onChange={e => this.handleChange(e)}
             onKeyDown={(e) => {
-              this.setState({
-                inputValue: e.target.value,
-              });
+              console.log(this.state.inputValue);
               if (e.key === "Enter") {
                 this.props.addNewTask(e.target.value);
                 e.target.value = "";
               }
             }}
           />
+          <button className={"todo__button"} onClick={()=>this.props.addNewTask(this.state.inputValue)}>GO!</button>
         </div>
       </div>
     );
