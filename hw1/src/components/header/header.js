@@ -14,9 +14,9 @@ class Header extends Component {
             <span className={"header__quote"}>Hello World!</span>
           </div>
           <div className={"header__buttons"}>
-            {/*    Button 1 outlined*/}
+            {/*    FormActivateButton 1 outlined*/}
             <Button variant="outlined">Sign Up</Button>
-            {/*    Button 2 filled*/}
+            {/*    FormActivateButton 2 filled*/}
             <Button variant="contained">Sign In</Button>
           </div>
         </div>
