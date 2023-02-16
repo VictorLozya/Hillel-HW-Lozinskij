@@ -1,0 +1,16 @@
+.form {
+  &__input {
+    &--alert {
+      border: 2px solid red;
+      &:focus {
+        border: 2px solid red;
+        outline: red;
+      }
+    }
+  }
+  &__label {
+    &--alert {
+      color: red;
+    }
+  }
+}
