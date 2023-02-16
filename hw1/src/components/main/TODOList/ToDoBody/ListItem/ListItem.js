@@ -10,6 +10,8 @@ class ListItem extends Component {
         }
       >
         <p className="item__text">{this.props.item.task}</p>
+        <p className="item__text">{this.props.item.subtask}</p>
+
         <div className="item__statuses">
           <input
             className={"item__checkbox"}

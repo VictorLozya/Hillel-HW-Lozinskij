@@ -10,6 +10,7 @@ class ToDoList extends Component {
       taskConstruct: {
         id: Number,
         task: String,
+        subtask: String,
         completed: false,
       },
       todos: [],
@@ -42,15 +43,17 @@ class ToDoList extends Component {
     });
   };
 
-  addNewTask = (text) => {
-    const newTodos = [...this.state.todos];
-    newTodos.push({
-      ...this.state.taskConstruct,
-      id: newTodos.length + 1,
-      task: text,
-    });
+  addNewTask = (text, subtext) => {
+    // Это топорный способ с созданием нового масива
+    //
+    // const newTodos = [...this.state.todos];
+    // newTodos.push({
+    //   ...this.state.taskConstruct,
+    //   id: newTodos.length + 1,
+    //   task: text,
+    // });
     this.setState({
-      todos: newTodos,
+      todos: [...this.state.todos, {...this.state.taskConstruct, id: this.state.todos.length +1, task: text, subtask: subtext }],
     });
   };
 

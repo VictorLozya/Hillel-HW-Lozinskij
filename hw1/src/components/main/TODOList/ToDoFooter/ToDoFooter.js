@@ -6,36 +6,42 @@ class ToDoFooter extends Component {
     super();
     this.state = {
       inputValue: "",
+      secondInputValue: ""
     };
-    this.handleChange = this.handleChange.bind(this)
+
   }
-handleChange(event){
+  handleAllChanges = (e) => {
     this.setState({
-      inputValue: event.target.value
+      [e.target.name] : e.target.value
     })
-}
+    console.log(`${e.target.name} ${e.target.value}`);
+  }
   render() {
     return (
       <div className={`todo__footer`}>
         <label htmlFor="newTask" className={"todo__sub"}>
           Type the task, then press "Enter" key to add new task in To Do list.
         </label>
-        <div className="todo__input-block">
+        <form onSubmit={event => event.preventDefault()} className="todo__input-block">
           <input
             id={`newTask`}
             type="text"
             className={"todo__input"}
-            onChange={e => this.handleChange(e)}
-            onKeyDown={(e) => {
-              console.log(this.state.inputValue);
-              if (e.key === "Enter") {
-                this.props.addNewTask(e.target.value);
-                e.target.value = "";
-              }
-            }}
+            value={this.state.inputValue}
+            onChange={this.handleAllChanges}
+            name={'inputValue'}
+            // onKeyDown={(e) => {
+            //   console.log(this.state.inputValue);
+            //   if (e.key === "Enter") {
+            //     this.props.addNewTask(e.target.value);
+            //     e.target.value = "";
+            //   }
+            // }}
           />
-          <button className={"todo__button"} onClick={()=>this.props.addNewTask(this.state.inputValue)}>GO!</button>
-        </div>
+
+          <input type="text" className="todo__input" name={'secondInputValue'} value={this.state.secondInputValue} onChange={this.handleAllChanges} />
+          <button className={"todo__button"} onClick={()=>this.props.addNewTask(this.state.inputValue, this.state.secondInputValue)}>GO!</button>
+        </form>
       </div>
     );
   }
