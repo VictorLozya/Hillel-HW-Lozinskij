@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import FormButton from "./FormButton/FormButton";
-import {v4 as uuidv4} from 'uuid';
 
 class PhoneForm extends Component {
   render() {
     return (
       <div>
-        
+        <form  className="ownform">
+          <input type="text" />
+          <input type="text" />
+          <input type="submit" />
+        </form>
       </div>
     );
   }
