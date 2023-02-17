@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PhoneList from "./PhoneList/PhoneList";
 import PhoneForm from "./PhoneForm/PhoneForm";
-import FormActivateButton from "./FormActivateButton/FormActivateButton";
 import { v4 as uuidv4 } from "uuid";
+
+import "./PhoneContacts.scss";
 
 class PhoneContacts extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class PhoneContacts extends Component {
         },
       ],
     });
+    console.log(this.state.contacts);
   };
   deleteContact = (id) => {
     this.setState({
@@ -60,7 +62,13 @@ class PhoneContacts extends Component {
             addNewContact={this.addNewContact}
           />
         ) : (
-          <button onClick={(e) => this.toggleButton(e)}> Add contact</button>
+          <button
+            className={"form__button"}
+            onClick={(e) => this.toggleButton(e)}
+          >
+            {" "}
+            Add contact
+          </button>
         )}
       </div>
     );

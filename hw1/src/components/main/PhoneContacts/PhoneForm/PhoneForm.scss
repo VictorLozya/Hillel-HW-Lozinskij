@@ -13,4 +13,20 @@
       color: red;
     }
   }
+  &__button {
+    border: 1.5px solid #00ffda;
+    border-radius: 30px;
+    background-color: #9d11d5;
+    color: #00ffda;
+    padding: 5px 10px;
+    font-weight: bolder;
+    &--cancel {
+      border: 3px solid #ffffff;
+      border-radius: 30px;
+      font-weight: bolder;
+      background-color: #d51135;
+      color: #ffffff;
+      padding: 5px 10px;
+    }
+  }
 }

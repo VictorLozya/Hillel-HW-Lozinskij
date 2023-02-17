@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import FormButton from "./FormButton/FormButton";
 
 import "./PhoneForm.scss";
 import InputPhone from "./InputPhone/InputPhone";
@@ -67,8 +66,13 @@ class PhoneForm extends Component {
             handleTelValue={this.handleChange}
             name={"tel"}
           />
-          <input type="submit" />
-          <button onClick={(e) => this.props.toggleForm(e)}>Cancel</button>
+          <input className={"form__button"} type="submit" />
+          <button
+            className={"form__button--cancel"}
+            onClick={(e) => this.props.toggleForm(e)}
+          >
+            Cancel
+          </button>
         </form>
       </div>
     );
