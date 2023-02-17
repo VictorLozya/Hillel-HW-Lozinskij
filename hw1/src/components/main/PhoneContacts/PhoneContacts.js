@@ -17,12 +17,6 @@ class PhoneContacts extends Component {
           secondName: "Lozinskij",
           tel: "+38050505050",
         },
-        {
-          id: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
-          firstName: "John",
-          secondName: "Doe",
-          tel: "00000000000",
-        },
       ],
     };
   }
@@ -52,6 +46,7 @@ class PhoneContacts extends Component {
   render() {
     return (
       <div className={"phone-contacts"}>
+        <h2 className={"phone-contacts__header"}>Phone Contacts</h2>
         <PhoneList
           contacts={this.state.contacts}
           deleteContact={this.deleteContact}

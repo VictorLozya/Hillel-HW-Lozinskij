@@ -5,6 +5,7 @@ class InputText extends Component {
     super();
     this.state = {
       value: "",
+      invalidCharacter: false,
     };
   }
   handleValue = (e) => {
@@ -17,9 +18,13 @@ class InputText extends Component {
       e.target.className = "form__input--alert";
       this.setState({
         value: this.state.value.replace(/[^\p{Alpha}\p{M}]/gu, ""),
+        invalidCharacter: true,
       });
     } else {
       e.target.className = "form__input";
+      this.setState({
+        invalidCharacter: false,
+      });
     }
   };
   render() {
@@ -31,11 +36,12 @@ class InputText extends Component {
           }
           htmlFor={this.props.name}
         >
-          Enter your {this.props.placeholder}
+          Enter {this.props.placeholder}
         </label>
         <input
           id={this.props.name}
           type="text"
+          className={"input-block__area"}
           name={this.props.name}
           value={this.state.value}
           onChange={(e) => {
@@ -44,6 +50,9 @@ class InputText extends Component {
           }}
           onKeyUp={(e) => this.inputTextValidation(e)}
         />
+        {this.state.invalidCharacter ? (
+          <span className={"form__alert-text"}>Input must contain text.</span>
+        ) : null}
       </div>
     );
   }

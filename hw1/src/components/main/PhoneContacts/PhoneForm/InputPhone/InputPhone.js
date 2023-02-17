@@ -5,6 +5,7 @@ class InputPhone extends Component {
     super();
     this.state = {
       tel: "",
+      invalidCharacter: false,
     };
   }
   handleTelValue = (e) => {
@@ -17,23 +18,29 @@ class InputPhone extends Component {
       e.target.className = "form__input--alert";
       this.setState({
         tel: this.state.tel.replace(/[^\p{N}\+]/gu, ""),
+        invalidCharacter: true,
       });
     } else {
       e.target.className = "form__input";
+      this.setState({
+        invalidCharacter: false,
+      });
     }
   };
   render() {
     return (
-      <div className="tel-block">
+      <div className="input-block">
         <label
           className={
             this.props.validation ? "form__label--alert" : "form__label"
           }
           htmlFor={this.props.name}
         >
-          Enter your {this.props.placeholder}
+          Enter {this.props.placeholder}
         </label>
         <input
+          className={"input-block__area"}
+          id={this.props.name}
           type="tel"
           name={this.props.name}
           value={this.state.tel}
@@ -43,6 +50,11 @@ class InputPhone extends Component {
           }}
           onKeyUp={(e) => this.inputTelValidation(e)}
         />
+        {this.state.invalidCharacter ? (
+          <span className={"form__alert-text"}>
+            Input must contain numbers.
+          </span>
+        ) : null}
       </div>
     );
   }

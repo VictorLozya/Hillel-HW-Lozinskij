@@ -46,35 +46,35 @@ class PhoneForm extends Component {
 
   render() {
     return (
-      <div>
-        <form className="form" onSubmit={this.addNewContact}>
-          <InputText
-            placeholder={"first name"}
-            validation={this.state.firstNameEmpty}
-            name={"firstName"}
-            handleChange={this.handleChange}
-          />
-          <InputText
-            placeholder={"second name"}
-            validation={this.state.secondNameEmpty}
-            name={"secondName"}
-            handleChange={this.handleChange}
-          />
-          <InputPhone
-            placeholder={"telephone"}
-            validation={this.state.telEmpty}
-            handleTelValue={this.handleChange}
-            name={"tel"}
-          />
-          <input className={"form__button"} type="submit" />
+      <form className="form" onSubmit={this.addNewContact}>
+        <InputText
+          placeholder={"first name"}
+          validation={this.state.firstNameEmpty}
+          name={"firstName"}
+          handleChange={this.handleChange}
+        />
+        <InputText
+          placeholder={"second name"}
+          validation={this.state.secondNameEmpty}
+          name={"secondName"}
+          handleChange={this.handleChange}
+        />
+        <InputPhone
+          placeholder={"telephone"}
+          validation={this.state.telEmpty}
+          handleTelValue={this.handleChange}
+          name={"tel"}
+        />
+        <div className="form__button-block">
+          <input className={"form__button"} type="submit" value={"Submit"} />
           <button
             className={"form__button--cancel"}
             onClick={(e) => this.props.toggleForm(e)}
           >
             Cancel
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     );
   }
 }
