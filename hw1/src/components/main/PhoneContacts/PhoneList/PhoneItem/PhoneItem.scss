@@ -1,0 +1,44 @@
+.item {
+  width: 85%;
+  background-color: antiquewhite;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  &__number {
+    border-right: 2px solid #774d06;
+    display: block;
+
+    padding: 5px 20px 5px 0;
+  }
+  &__name {
+    display: flex;
+    width: 40%;
+    gap: 10px;
+    justify-content: flex-start;
+    font-size: 20px;
+  }
+  &__tel {
+    width: 30%;
+    text-align: center;
+    border-left: 2px solid #774d06;
+    border-right: 2px solid #774d06;
+    padding: 5px 0;
+  }
+  &__delete {
+    border: 2px solid transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: #d51135;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      border-color: #d51135;
+      background-color: antiquewhite;
+      color: #d51135;
+    }
+  }
+}
