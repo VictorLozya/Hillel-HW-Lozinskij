@@ -1,29 +1,24 @@
 import React, { Component } from "react";
-import LiIcon from "@mui/icons-material/CallMissedOutgoingRounded";
+import ListItem from "./ListItem/ListItem";
+
 import style from "./nav.module.scss";
 class Nav extends Component {
   render() {
     return (
       <nav className={style.list}>
         <ul className={style.list__container}>
-          <li className={style.list__container__item}>
-            <a href={"*"} className={style.list__link}>
-              <LiIcon />
-            </a>
-            <span>Home</span>
-          </li>
-          <li className={style.list__container__item}>
-            <a href={"*"} className={style.list__link}>
-              <LiIcon />
-            </a>
-            <span>Notes</span>
-          </li>
-          <li className={style.list__container__item}>
-            <a href={"*"} className={style.list__link}>
-              <LiIcon />
-            </a>
-            <span>News</span>
-          </li>
+          <ListItem
+            name={"Jedi"}
+            sectionToggling={this.props.sectionToggling}
+          />
+          <ListItem
+            name={"Planets"}
+            sectionToggling={this.props.sectionToggling}
+          />
+          <ListItem
+            name={"Ships"}
+            sectionToggling={this.props.sectionToggling}
+          />
         </ul>
       </nav>
     );
