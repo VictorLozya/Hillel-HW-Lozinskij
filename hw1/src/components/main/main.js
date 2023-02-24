@@ -17,24 +17,6 @@ class Main extends Component {
     this.targetValidation(e, "Planets", "isPlanets", "isPeoples", "isShips");
     this.targetValidation(e, "Ships", "isShips", "isPeoples", "isPlanets");
   };
-  componentDidMount() {
-    this.myRequest("planets");
-    this.myRequest("starships");
-    this.myRequest("people");
-  }
-
-  myRequest = (endpoint) => {
-    let requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-    fetch(`https://swapi.dev/api/${endpoint}/`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result.results);
-      })
-      .catch((error) => console.error(`error`, error));
-  };
 
   targetValidation = (
     event,

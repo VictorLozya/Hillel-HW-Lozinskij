@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { ClipLoader } from "react-spinners";
+import { DotLoader } from "react-spinners";
 import PlanetCard from "../DataCards/PlanetCard";
 import PeopleCard from "../DataCards/PeopleCard";
 import ShipsCard from "../DataCards/ShipsCard";
 
+import "./DataList.scss";
 class DataList extends Component {
   constructor() {
     super();
@@ -49,12 +50,13 @@ class DataList extends Component {
   };
   render() {
     return (
-      <div>
+      <div className={"data"}>
         {this.state.isLoaded ? (
-          <ul>
+          <ul className={"data__list"}>
             {this.state.results.map((item, index) => {
               return (
                 <li
+                  className={"data__item"}
                   onClick={() => {
                     this.oneResultSet(item);
                   }}
@@ -66,7 +68,9 @@ class DataList extends Component {
             })}
           </ul>
         ) : (
-          <ClipLoader />
+          <div className={"load-wrapper"}>
+            <DotLoader color={"#B92970"} />
+          </div>
         )}
 
         {this.props.planet && this.state.isLoaded ? (
