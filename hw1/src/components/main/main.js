@@ -51,7 +51,7 @@ class Main extends Component {
           {!this.state.isShips &&
             !this.state.isPlanets &&
             !this.state.isPeoples && (
-              <DataList planet={true} endpoint={"people"} />
+              <DataList people={true} endpoint={"people"} />
             )}
         </div>
       </div>
