@@ -4,13 +4,16 @@ import Footer from "./components/footer/footer";
 import Main from "./components/main/main";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
     return (
       <div>
         <Header />
-
-        <Main />
-
+        <Main fetchFunction={this.myRequest} />
         <Footer />
       </div>
     );
