@@ -1,62 +1,68 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Nav from "../nav/nav";
 import "./main.scss";
-import DataList from "./DataList/DataList";
+import DataList from "../DataList/DataList";
 
-class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isPeoples: false,
-      isPlanets: false,
-      isShips: false,
-    };
-  }
-  sectionToggling = (e) => {
-    this.targetValidation(e, "Jedi", "isPeoples", "isShips", "isPlanets");
-    this.targetValidation(e, "Planets", "isPlanets", "isPeoples", "isShips");
-    this.targetValidation(e, "Ships", "isShips", "isPeoples", "isPlanets");
+const Main = () => {
+  const [isPeoples, setIsPeoples] = useState(false);
+  const [isPlanets, setIsPlanets] = useState(false);
+  const [isShips, setIsShips] = useState(false);
+
+  const sectionToggling = (e) => {
+    targetValidation(
+      e,
+      "Jedi",
+      "isPeoples",
+      setIsPeoples,
+      setIsPlanets,
+      setIsShips
+    );
+    targetValidation(
+      e,
+      "Planets",
+      "isPlanets",
+      setIsPlanets,
+      setIsShips,
+      setIsPeoples
+    );
+    targetValidation(
+      e,
+      "Ships",
+      "isShips",
+      setIsShips,
+      setIsPeoples,
+      setIsPlanets
+    );
   };
 
-  targetValidation = (
+  const targetValidation = (
     event,
     name,
     section,
+    method,
     disabledSection,
     disabledSection2
   ) => {
     if (event.currentTarget.id === name) {
-      this.setState({
-        [section]: true,
-        [disabledSection]: false,
-        [disabledSection2]: false,
-      });
+      method(true);
+      disabledSection(false);
+      disabledSection2(false);
     }
   };
 
-  render() {
-    return (
-      <div className={"container"}>
-        <div className={"wrapper"}>
-          <Nav sectionToggling={this.sectionToggling} />
-          {this.state.isPeoples && (
-            <DataList people={this.state.isPeoples} endpoint={"people"} />
-          )}
-          {this.state.isPlanets && (
-            <DataList planet={this.state.isPlanets} endpoint={"planets"} />
-          )}
-          {this.state.isShips && (
-            <DataList ship={this.state.isShips} endpoint={"starships"} />
-          )}
-          {!this.state.isShips &&
-            !this.state.isPlanets &&
-            !this.state.isPeoples && (
-              <DataList people={this.state.isPeoples} endpoint={"people"} />
-            )}
-        </div>
+  return (
+    <div className={"container"}>
+      <div className={"wrapper"}>
+        <Nav sectionToggling={sectionToggling} />
+        {isPeoples && <DataList people={isPeoples} endpoint={"people"} />}
+        {isPlanets && <DataList planet={isPlanets} endpoint={"planets"} />}
+        {isShips && <DataList ship={isShips} endpoint={"starships"} />}
+        {!isShips && !isPlanets && !isPeoples && (
+          <DataList people={true} endpoint={"people"} />
+        )}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Main;
