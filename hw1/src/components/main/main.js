@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Nav from "../nav/nav";
 import "./main.scss";
 import DataList from "../DataList/DataList";
+import { GlobalTheme } from "../../App";
 
 const Main = () => {
   const [isPeoples, setIsPeoples] = useState(false);
   const [isPlanets, setIsPlanets] = useState(false);
   const [isShips, setIsShips] = useState(false);
+  const context = useContext(GlobalTheme);
 
   const sectionToggling = (e) => {
     targetValidation(
@@ -52,7 +54,7 @@ const Main = () => {
 
   return (
     <div className={"container"}>
-      <div className={"wrapper"}>
+      <div className={context.themeLight ? "wrapper light" : "wrapper"}>
         <Nav sectionToggling={sectionToggling} />
         {isPeoples && <DataList people={isPeoples} endpoint={"people"} />}
         {isPlanets && <DataList planet={isPlanets} endpoint={"planets"} />}

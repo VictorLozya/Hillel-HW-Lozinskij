@@ -1,23 +1,21 @@
-import React, { Component } from "react";
+import React, { createContext, useState } from "react";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Main from "./components/main/main";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div>
+export const GlobalTheme = createContext(null);
+// const LanguageContext = React.createContext("");
+const App = () => {
+  const [themeLight, useThemeLight] = useState(false);
+  return (
+    <div>
+      <GlobalTheme.Provider value={{ themeLight, useThemeLight }}>
         <Header />
-        <Main fetchFunction={this.myRequest} />
+        <Main />
         <Footer />
-      </div>
-    );
-  }
-}
+      </GlobalTheme.Provider>
+    </div>
+  );
+};
 
 export default App;
