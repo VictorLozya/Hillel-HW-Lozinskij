@@ -1,0 +1,55 @@
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(7, 100px);
+  width: 70%;
+  gap: 5px;
+  color: #fefffe;
+
+  &__title {
+    display: inline-block;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Comic Sans MS";
+    margin: 20px 20px;
+    color: #4fa08d;
+    border-bottom: 2px solid #b92970;
+    &--light {
+      color: #110cb7;
+    }
+  }
+  &__subtitle {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 30px;
+    color: #4fa08d;
+    text-align: center;
+    &--light {
+      color: #110cb7;
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #161d28;
+    padding: 20px 0;
+    border-radius: 20px;
+    font-size: 20px;
+    &--light {
+      background-color: rgba(134, 224, 208, 0.66);
+    }
+    &__title {
+      color: #b92970;
+      font-weight: 400;
+      font-size: 25px;
+      &--light {
+        color: #110cb7;
+      }
+    }
+  }
+}
