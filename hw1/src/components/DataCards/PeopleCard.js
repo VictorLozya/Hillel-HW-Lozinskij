@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import "./DataCard.scss";
-import { GlobalTheme } from "../../App";
+import { GlobalTheme, LanguageContext } from "../../App";
 
 const DataCard = ({ item }) => {
   const context = useContext(GlobalTheme);
-
+  const languageContext = useContext(LanguageContext);
+  const language = languageContext.languageState === "eng";
   return (
     <div className={"card"}>
       <h1
@@ -22,7 +23,7 @@ const DataCard = ({ item }) => {
               : "card__subtitle"
           }
         >
-          Robot
+          {language ? "Robot" : "Робот"}
         </h2>
       )}
       <h2
@@ -32,7 +33,9 @@ const DataCard = ({ item }) => {
             : "card__subtitle"
         }
       >
-        Birth Date: {item.birth_year}
+        {language
+          ? `Birth Date: ${item.birth_year}`
+          : `Дата народження: ${item.birth_year}`}
       </h2>
       <div
         className={
@@ -48,7 +51,7 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Height:
+          {language ? `Height:` : `Зріст:`}
         </span>
         <span className={"card__content__value"}>{item.height}</span>
       </div>
@@ -66,9 +69,9 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Height:
+          {language ? `Mass:` : `Вага:`}
         </span>
-        <span className={"card__content__value"}>{item.height}</span>
+        <span className={"card__content__value"}>{item.mass}</span>
       </div>
       <div
         className={
@@ -84,7 +87,7 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Gender:
+          {language ? `Gender:` : `Стать:`}
         </span>
         <span className={"card__content__value"}>{item.gender}</span>
       </div>
@@ -102,7 +105,7 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Hair color:
+          {language ? `Hair color:` : `Колір волосся:`}
         </span>
         <span className={"card__content__value"}>{item.hair_color}</span>
       </div>
@@ -120,7 +123,7 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Eye color:
+          {language ? `Eye color:` : `Колір очей:`}
         </span>
         <span className={"card__content__value"}>{item.eye_color}</span>
       </div>
@@ -138,7 +141,7 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Skin color:
+          {language ? `Skin color:` : `Колір шкіри:`}
         </span>
         <span className={"card__content__value"}>{item.skin_color}</span>
       </div>

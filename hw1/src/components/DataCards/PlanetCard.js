@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import "./DataCard.scss";
-import { GlobalTheme } from "../../App";
+import { GlobalTheme, LanguageContext } from "../../App";
 
 const PlanetCard = ({ item }) => {
   const context = useContext(GlobalTheme);
+  const languageContext = useContext(LanguageContext);
+  const language = languageContext.languageState === "eng";
   return (
     <div className={"card"}>
       <h1
@@ -17,7 +19,7 @@ const PlanetCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -27,7 +29,7 @@ const PlanetCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Diameter:
+          {language ? `Diameter:` : `Окружність:`}
         </span>
         <span className={"card__content__value"}>{item.diameter} km</span>
       </div>
@@ -35,7 +37,7 @@ const PlanetCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -45,17 +47,17 @@ const PlanetCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Rotation speed:
+          {language ? `Rotation speed:` : `Швидкість обертання:`}
         </span>
         <span className={"card__content__value"}>
-          {item.rotation_period} hours
+          {item.rotation_period} {language ? `hours` : `годин`}
         </span>
       </div>
       <div
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -65,17 +67,17 @@ const PlanetCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Orbital period:
+          {language ? `Orbital period:` : `Орбітальний період:`}
         </span>
         <span className={"card__content__value"}>
-          {item.orbital_period} days
+          {item.orbital_period} {language ? `days` : `днів`}
         </span>
       </div>
       <div
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -85,7 +87,7 @@ const PlanetCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Gravity:
+          {language ? `Gravity:` : `Сила тяжіння:`}
         </span>
         <span className={"card__content__value"}>{item.gravity} G</span>
       </div>
@@ -93,7 +95,7 @@ const PlanetCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -103,7 +105,7 @@ const PlanetCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Climate:
+          {language ? `Climate:` : `Клімат:`}
         </span>
         <span className={"card__content__value"}>{item.climate} </span>
       </div>
@@ -111,7 +113,7 @@ const PlanetCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -121,7 +123,7 @@ const PlanetCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Terrain:
+          {language ? `Terrain:` : `Біом:`}
         </span>
         <span className={"card__content__value"}>{item.terrain} </span>
       </div>
@@ -129,7 +131,7 @@ const PlanetCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -139,7 +141,7 @@ const PlanetCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Surface Water:
+          {language ? `Surface Water:` : `Поверхневі Води:`}
         </span>
         <span className={"card__content__value"}>{item.surface_water}%</span>
       </div>
@@ -147,7 +149,7 @@ const PlanetCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -157,9 +159,12 @@ const PlanetCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Population:
+          {language ? `Population:` : `Населення:`}
         </span>
-        <span className={"card__content__value"}>{item.population} beigns</span>
+        <span className={"card__content__value"}>
+          {item.population}
+          {language ? ` beigns` : ` осіб`}
+        </span>
       </div>
     </div>
   );

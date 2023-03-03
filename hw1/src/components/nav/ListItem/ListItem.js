@@ -8,7 +8,7 @@ const ListItem = (props) => {
 
   return (
     <li
-      id={props.name}
+      id={props.id}
       onClick={(e) => {
         props.sectionToggling(e);
       }}

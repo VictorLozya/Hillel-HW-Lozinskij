@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import "./DataCard.scss";
-import { GlobalTheme } from "../../App";
+import { GlobalTheme, LanguageContext } from "../../App";
 
 const DataCard = ({ item }) => {
   const context = useContext(GlobalTheme);
-
+  const languageContext = useContext(LanguageContext);
+  const language = languageContext.languageState === "eng";
   return (
     <div className={"card"}>
       <h1
@@ -21,13 +22,14 @@ const DataCard = ({ item }) => {
             : "card__subtitle"
         }
       >
-        Model : {item.model}
+        {language ? `Model: ` : `Модель: `}
+        {item.model}
       </h2>
       <div
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -37,7 +39,7 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Starship Class:
+          {language ? `Starship Class: ` : `Клас зорельоту: `}
         </span>
         <span className={"card__content__value"}>{item.starship_class}</span>
       </div>
@@ -45,7 +47,7 @@ const DataCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -55,7 +57,7 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Manufacturer:
+          {language ? `Manufacturer: ` : `Виробник: `}
         </span>
         <span className={"card__content__value"}>{item.manufacturer}</span>
       </div>
@@ -63,7 +65,7 @@ const DataCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -73,17 +75,18 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Costs:
+          {language ? `Costs: ` : `Вартість: `}
         </span>
         <span className={"card__content__value"}>
-          {item.cost_in_credits} credits
+          {item.cost_in_credits}
+          {language ? ` credits` : ` кредитів`}
         </span>
       </div>
       <div
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -93,15 +96,15 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Length:
+          {language ? `Length:` : `Довжина:`}
         </span>
-        <span className={"card__content__value"}>{item.length} meters</span>
+        <span className={"card__content__value"}>{item.length} m</span>
       </div>
       <div
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -111,35 +114,18 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Crew:
-        </span>
-        <span className={"card__content__value"}>{item.crew} members</span>
-      </div>
-      <div
-        className={
-          context.themeLight
-            ? "card__content card__content--light"
-            : "car__content"
-        }
-      >
-        <span
-          className={
-            context.themeLight
-              ? "card__content__title card__content__title--light"
-              : "card__content__title"
-          }
-        >
-          Passengers:
+          {language ? `Crew:` : `Екіпаж:`}
         </span>
         <span className={"card__content__value"}>
-          {item.passengers} members
+          {item.crew}
+          {language ? ` members` : ` осіб`}
         </span>
       </div>
       <div
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -149,7 +135,28 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Max Atmosphering Speed:
+          {language ? `Passengers:` : `Пасажирські місця:`}
+        </span>
+        <span className={"card__content__value"}>
+          {item.passengers}
+          {language ? ` members` : ` штук`}
+        </span>
+      </div>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "card__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          {language ? `Max Atmosphering Speed` : `Швидкість в атмосфері`}
         </span>
         <span className={"card__content__value"}>
           {item.max_atmosphering_speed === "n/a"
@@ -161,7 +168,7 @@ const DataCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -171,7 +178,7 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Hyperdrive Rating:
+          {language ? `Hyperdrive Rating:` : `Клас гіпердвигуну:`}
         </span>
         <span className={"card__content__value"}>{item.hyperdrive_rating}</span>
       </div>
@@ -179,7 +186,7 @@ const DataCard = ({ item }) => {
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -189,15 +196,18 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          MGLT speed:
+          {language ? `MGLT speed:` : `MGLT швидкість:`}
         </span>
-        <span className={"card__content__value"}>{item.MGLT} MGLT/hour</span>
+        <span className={"card__content__value"}>
+          {item.MGLT} MGLT/
+          {language ? `hour` : `годину`}
+        </span>
       </div>
       <div
         className={
           context.themeLight
             ? "card__content card__content--light"
-            : "car__content"
+            : "card__content"
         }
       >
         <span
@@ -207,7 +217,7 @@ const DataCard = ({ item }) => {
               : "card__content__title"
           }
         >
-          Cargo Capacity:
+          {language ? `Cargo Capacity:` : `Вмістимість вантажу:`}
         </span>
         <span className={"card__content__value"}>{item.cargo_capacity} kg</span>
       </div>
