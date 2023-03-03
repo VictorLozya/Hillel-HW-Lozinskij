@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { DotLoader } from "react-spinners";
 import PlanetCard from "../DataCards/PlanetCard";
 import PeopleCard from "../DataCards/PeopleCard";
 import ShipsCard from "../DataCards/ShipsCard";
 
 import "./DataList.scss";
+import { GlobalTheme } from "../../App";
 const DataList = (props) => {
   const [results, setResults] = useState([]);
   const [oneResult, setOneResult] = useState(Object);
   const [isLoaded, setIsLoaded] = useState(false);
+  const context = useContext(GlobalTheme);
   useEffect(() => {
     myRequest(props.endpoint);
 
@@ -34,13 +36,21 @@ const DataList = (props) => {
   };
 
   return (
-    <div className={"data"}>
+    <div className={context.themeLight ? "data data--light" : "data"}>
       {isLoaded ? (
-        <ul className={"data__list"}>
+        <ul
+          className={
+            context.themeLight ? "data__list data__list--light" : "data__list"
+          }
+        >
           {results.map((item, index) => {
             return (
               <li
-                className={"data__item"}
+                className={
+                  context.themeLight
+                    ? "data__item data__item--light"
+                    : "data__item"
+                }
                 onClick={() => {
                   setOneResult(item);
                 }}

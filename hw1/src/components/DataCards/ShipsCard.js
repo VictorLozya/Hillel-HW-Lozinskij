@@ -1,57 +1,214 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./DataCard.scss";
+import { GlobalTheme } from "../../App";
 
 const DataCard = ({ item }) => {
+  const context = useContext(GlobalTheme);
+
   return (
     <div className={"card"}>
-      <h1 className={"card__title"}>{item.name}</h1>
-      <h2 className={"card__subtitle"}>Model : {item.model}</h2>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>Starship Class:</span>
+      <h1
+        className={
+          context.themeLight ? "card__title card__title--light" : "card__title"
+        }
+      >
+        {item.name}
+      </h1>
+      <h2
+        className={
+          context.themeLight
+            ? "card__subtitle card__subtitle--light"
+            : "card__subtitle"
+        }
+      >
+        Model : {item.model}
+      </h2>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          Starship Class:
+        </span>
         <span className={"card__content__value"}>{item.starship_class}</span>
       </div>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>Manufacturer:</span>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          Manufacturer:
+        </span>
         <span className={"card__content__value"}>{item.manufacturer}</span>
       </div>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>Costs:</span>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          Costs:
+        </span>
         <span className={"card__content__value"}>
           {item.cost_in_credits} credits
         </span>
       </div>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>Length:</span>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          Length:
+        </span>
         <span className={"card__content__value"}>{item.length} meters</span>
       </div>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>Crew:</span>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          Crew:
+        </span>
         <span className={"card__content__value"}>{item.crew} members</span>
       </div>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>Passengers:</span>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          Passengers:
+        </span>
         <span className={"card__content__value"}>
           {item.passengers} members
         </span>
       </div>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>Max Atmosphering Speed:</span>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          Max Atmosphering Speed:
+        </span>
         <span className={"card__content__value"}>
           {item.max_atmosphering_speed === "n/a"
             ? "Cannot fly in atmosphere"
             : item.max_atmosphering_speed + " Kph"}
         </span>
       </div>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>Hyperdrive Rating:</span>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          Hyperdrive Rating:
+        </span>
         <span className={"card__content__value"}>{item.hyperdrive_rating}</span>
       </div>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>MGLT speed:</span>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          MGLT speed:
+        </span>
         <span className={"card__content__value"}>{item.MGLT} MGLT/hour</span>
       </div>
-      <div className={"card__content"}>
-        <span className={"card__content__title"}>Cargo Capacity:</span>
+      <div
+        className={
+          context.themeLight
+            ? "card__content card__content--light"
+            : "car__content"
+        }
+      >
+        <span
+          className={
+            context.themeLight
+              ? "card__content__title card__content__title--light"
+              : "card__content__title"
+          }
+        >
+          Cargo Capacity:
+        </span>
         <span className={"card__content__value"}>{item.cargo_capacity} kg</span>
       </div>
     </div>

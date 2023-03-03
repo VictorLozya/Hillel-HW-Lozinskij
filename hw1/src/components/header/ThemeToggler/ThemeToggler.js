@@ -18,7 +18,6 @@ const ThemeToggler = () => {
         }}
         color={context.themeLight ? "default" : "secondary"}
       />
-      {`${context.themeLight}`}
     </>
   );
 };
