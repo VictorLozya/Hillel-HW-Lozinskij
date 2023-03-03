@@ -1,6 +1,6 @@
 import { Switch } from "@mui/material";
 import { useContext } from "react";
-// import { ThemeContext } from "@emotion/react";
+
 import { GlobalTheme } from "../../../App";
 
 const ThemeToggler = () => {

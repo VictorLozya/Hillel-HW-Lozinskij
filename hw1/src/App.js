@@ -4,15 +4,19 @@ import Footer from "./components/footer/footer";
 import Main from "./components/main/main";
 
 export const GlobalTheme = createContext(null);
-// const LanguageContext = React.createContext("");
+export const LanguageContext = React.createContext(null);
 const App = () => {
   const [themeLight, useThemeLight] = useState(false);
+  const [languageState, setLanguageState] = useState("eng");
+
   return (
     <div>
       <GlobalTheme.Provider value={{ themeLight, useThemeLight }}>
-        <Header />
-        <Main />
-        <Footer />
+        <LanguageContext.Provider value={{ languageState, setLanguageState }}>
+          <Header />
+          <Main />
+          <Footer />
+        </LanguageContext.Provider>
       </GlobalTheme.Provider>
     </div>
   );

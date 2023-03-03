@@ -2,6 +2,7 @@ import React from "react";
 import "./header.scss";
 import Logo from "../../assets/pngwing.png";
 import ThemeToggler from "./ThemeToggler/ThemeToggler";
+import LanguageToggler from "./LanguageToggler/LanguageToggler";
 
 const Header = () => {
   return (
@@ -15,6 +16,7 @@ const Header = () => {
         </div>
         <div className={"header__buttons"}>
           <ThemeToggler />
+          <LanguageToggler />
         </div>
       </div>
     </header>
