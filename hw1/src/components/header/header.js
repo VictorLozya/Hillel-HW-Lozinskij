@@ -3,6 +3,7 @@ import "./header.scss";
 import Logo from "../../assets/pngwing.png";
 import ThemeToggler from "./ThemeToggler/ThemeToggler";
 import LanguageToggler from "./LanguageToggler/LanguageToggler";
+import HeaderNav from "./HeaderNav/HeaderNav";
 
 const Header = () => {
   return (
@@ -11,9 +12,7 @@ const Header = () => {
         <div className={"header__logo"}>
           <img className={"logo"} src={Logo} alt="logo" />
         </div>
-        <div className={"header__text"}>
-          <span className={"header__quote"}></span>
-        </div>
+        <HeaderNav />
         <div className={"header__buttons"}>
           <ThemeToggler />
           <LanguageToggler />

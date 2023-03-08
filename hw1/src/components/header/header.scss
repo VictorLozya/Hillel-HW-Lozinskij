@@ -27,3 +27,32 @@
   width: 50px;
   height: 50px;
 }
+.header__nav{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  gap: 10px;
+  &__link > a{
+    text-decoration: none;
+    color: #ce0f91;
+    display: block;
+    padding: 5px 10px;
+    background-color: #161d28;
+    text-align: center;
+    border-radius: 20px;
+    transition: background-color, color 0.25s ease-in-out;
+      &:hover{
+        background-color: #ce0f91;
+        color: #161d28;
+      }
+    }
+  &__link--light > a{
+    color: #110cb7;
+    background-color: #4fa08d;
+    &:hover {
+      color: #4fa08d;
+      background-color: #110cb7;
+    }
+  }
+}
