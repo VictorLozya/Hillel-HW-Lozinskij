@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { GlobalTheme } from "../../../App";
+import { GlobalTheme, UserLogin } from "../../../App";
 
 const HeaderNav = () => {
   const context = useContext(GlobalTheme);
-  return (
+  const logInContext = useContext(UserLogin);
+  return logInContext.loggedIn ? (
     <ul className={"header__nav"}>
       <li
         className={
@@ -22,7 +23,7 @@ const HeaderNav = () => {
             : "header__nav__link"
         }
       >
-        <Link to={"/peoples"}>Peoples</Link>
+        <Link to={"/peoples"}>Jedis</Link>
       </li>
       <li
         className={
@@ -43,6 +44,8 @@ const HeaderNav = () => {
         <Link to={"/ships"}>Ships</Link>
       </li>
     </ul>
+  ) : (
+    <h2>Star Wars App</h2>
   );
 };
 export default HeaderNav;
