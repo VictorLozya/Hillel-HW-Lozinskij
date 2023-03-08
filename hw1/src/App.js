@@ -8,6 +8,7 @@ import PeoplesPage from "./components/pages/PeoplesPage";
 import PlanetsPage from "./components/pages/PlanetsPage";
 import ShipsPage from "./components/pages/ShipsPage";
 import LoginPage from "./components/pages/LoginPage";
+import ErrorPage from "./components/pages/ErrorPage/ErrorPage";
 
 export const GlobalTheme = createContext(null);
 export const LanguageContext = React.createContext(null);
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="/peoples" element={<PeoplesPage />} />
                 <Route path="/planets" element={<PlanetsPage />} />
                 <Route path="/ships" element={<ShipsPage />} />
+                <Route path="*" element={<ErrorPage />} />
               </Routes>
               <Footer />
             </UserLogin.Provider>

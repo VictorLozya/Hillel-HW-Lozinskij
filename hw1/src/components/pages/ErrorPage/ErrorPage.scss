@@ -1,0 +1,10 @@
+.error__wrapper{
+  height: calc(100vh - 183px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error__title{
+  color: red;
+  font-size: 50px;
+}
