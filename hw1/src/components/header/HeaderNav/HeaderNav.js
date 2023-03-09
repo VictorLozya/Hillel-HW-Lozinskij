@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { GlobalTheme, UserLogin } from "../../../App";
+import { GlobalTheme, LanguageContext, UserLogin } from "../../../App";
 
 const HeaderNav = () => {
   const context = useContext(GlobalTheme);
   const logInContext = useContext(UserLogin);
+  const languageContext = useContext(LanguageContext);
+  const language = languageContext.languageState === "eng";
   return logInContext.loggedIn ? (
     <ul className={"header__nav"}>
       <li
@@ -14,7 +16,7 @@ const HeaderNav = () => {
             : "header__nav__link"
         }
       >
-        <Link to={"/"}>Home</Link>
+        <Link to={"/"}>{language ? "Home" : "Початкова"}</Link>
       </li>
       <li
         className={
@@ -23,7 +25,7 @@ const HeaderNav = () => {
             : "header__nav__link"
         }
       >
-        <Link to={"/peoples"}>Jedis</Link>
+        <Link to={"/peoples"}>{language ? "Jedi" : "Джедаї"}</Link>
       </li>
       <li
         className={
@@ -32,7 +34,7 @@ const HeaderNav = () => {
             : "header__nav__link"
         }
       >
-        <Link to={"/planets"}>Planets</Link>
+        <Link to={"/planets"}> {language ? "Planets" : "Планети"}</Link>
       </li>
       <li
         className={
@@ -41,7 +43,7 @@ const HeaderNav = () => {
             : "header__nav__link"
         }
       >
-        <Link to={"/ships"}>Ships</Link>
+        <Link to={"/ships"}>{language ? "Ships" : "Зорельоти"}</Link>
       </li>
     </ul>
   ) : (

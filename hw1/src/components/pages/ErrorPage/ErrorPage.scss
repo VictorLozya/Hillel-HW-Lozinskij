@@ -1,10 +1,11 @@
 .error__wrapper{
   height: calc(100vh - 183px);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .error__title{
-  color: red;
+  color: #BB2649;
   font-size: 50px;
 }

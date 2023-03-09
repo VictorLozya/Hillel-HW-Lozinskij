@@ -1,0 +1,16 @@
+.back-button{
+  display: inline-block;
+  background-color: #BB2649;
+  color: antiquewhite;
+  border: transparent 4px solid;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 20px;
+  font-size: 30px;
+  transition: background-color, color 0.25s ease-in-out;
+  &:hover{
+    border-color: #BB2649;
+    color: #BB2649;
+    background-color: antiquewhite;
+  }
+}

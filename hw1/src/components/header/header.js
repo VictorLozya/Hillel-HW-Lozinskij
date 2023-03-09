@@ -4,12 +4,14 @@ import Logo from "../../assets/pngwing.png";
 import ThemeToggler from "./ThemeToggler/ThemeToggler";
 import LanguageToggler from "./LanguageToggler/LanguageToggler";
 import HeaderNav from "./HeaderNav/HeaderNav";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className={"header"}>
       <div className={"header__container"}>
-        <div className={"header__logo"}>
+        <div onClick={() => navigate("/")} className={"header__logo"}>
           <img className={"logo"} src={Logo} alt="logo" />
         </div>
         <HeaderNav />

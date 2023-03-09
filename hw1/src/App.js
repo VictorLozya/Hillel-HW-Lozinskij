@@ -7,7 +7,7 @@ import HomePage from "./components/pages/HomePage/HomePage";
 import PeoplesPage from "./components/pages/PeoplesPage";
 import PlanetsPage from "./components/pages/PlanetsPage";
 import ShipsPage from "./components/pages/ShipsPage";
-import LoginPage from "./components/pages/LoginPage";
+import LoginPage from "./components/pages/LogInPage/LoginPage";
 import ErrorPage from "./components/pages/ErrorPage/ErrorPage";
 
 export const GlobalTheme = createContext(null);
