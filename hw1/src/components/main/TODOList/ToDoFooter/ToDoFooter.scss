@@ -1,0 +1,46 @@
+.todo{
+  &__footer{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 10px;
+  }
+  &__sub{
+    font-size: 12px;
+  }
+  &__input{
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    border: 2px solid rgb(91, 203, 33);
+    width: 50%;
+    &:focus{
+      outline: none !important;
+      border: 2px solid rgb(243, 0, 226);
+
+    }
+    &-block{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px
+    }
+  }
+  &__button{
+    border: 2px solid transparent;
+    background-color: #e3397b;
+    color: #ecd8da;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+      background-color: #ecd8da;
+      color: #e3397b;
+      border: 2px solid #e3397b;
+    }
+  }
+}
