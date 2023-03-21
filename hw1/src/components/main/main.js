@@ -1,9 +1,7 @@
 import Nav from "../nav/nav";
 import "./main.scss";
 import ToDoList from "./TODOList/ToDoList";
-import store from "../store";
 const Main = () => {
-  console.log(store.getState());
   return (
     <div className={"container"}>
       <div className={"wrapper"}>

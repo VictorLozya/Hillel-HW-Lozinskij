@@ -19,17 +19,21 @@ const initialState = {
 };
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_TODO":
+    case "ADD_TASK":
       return {
-        todoList: [...this.todoList, action.payload],
+        ...state,
+        todoList: [...state.todoList, action.payload],
       };
-    case "DECREMENT":
+    case "SET_NEW_STATUS":
       return {
-        count: state.count - action.payload,
-      };
-    case "CLEAR":
-      return {
-        count: (state.count = 0),
+        ...state,
+        todoList: state.todoList.map((item) => {
+          if (item.id === action.payload) {
+            return { ...item, done: !item.done };
+          } else {
+            return item;
+          }
+        }),
       };
     default:
       return state;

@@ -6,14 +6,7 @@ const ToDoBody = ({ todos }) => {
     <div className={`todo__body`}>
       <ul className="todo__list">
         {todos.map((item) => {
-          return (
-            <ListItem
-              key={item.id}
-              item={item}
-              id={item.id}
-              // statusUpgrade={this.props.statusUpgrade}
-            />
-          );
+          return <ListItem key={item.id} item={item} id={item.id} />;
         })}
       </ul>
     </div>
