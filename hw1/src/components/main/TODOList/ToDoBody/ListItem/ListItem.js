@@ -9,19 +9,19 @@ class ListItem extends Component {
           this.props.item.completed ? "item item__done" : "item item__undone"
         }
       >
-        <p className="item__text">{this.props.item.task}</p>
-        <p className="item__text">{this.props.item.subtask}</p>
+        <p className="item__text">{this.props.item.title}</p>
 
         <div className="item__statuses">
           <input
             className={"item__checkbox"}
             id={`check_${this.props.id}`}
             type="checkbox"
-            defaultChecked={this.props.item.completed}
-            onChange={(e) => {
-              let value = e.target.checked;
-              this.props.statusUpgrade(value, this.props.id);
-            }}
+            defaultChecked={this.props.item.done}
+            // onChange={(e) => {
+            //   // let value = e.target.checked;
+            //   // this.props.statusUpgrade(value, this.props.id);
+            // }
+              }
           />
           {this.props.item.completed ? (
             <label

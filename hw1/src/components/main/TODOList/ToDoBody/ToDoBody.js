@@ -1,30 +1,23 @@
-import React, { Component } from "react";
 import ListItem from "./ListItem/ListItem";
 import "./ToDoBody.scss";
 
-class ToDoBody extends Component {
-  // constructor() {
-  //   super();
-  // }
-
-  render() {
-    return (
-      <div className={`todo__body`}>
-        <ul className="todo__list">
-          {this.props.todos.map((item) => {
-            return (
-              <ListItem
-                key={item.id}
-                item={item}
-                id={item.id}
-                statusUpgrade={this.props.statusUpgrade}
-              />
-            );
-          })}
-        </ul>
-      </div>
-    );
-  }
-}
+const ToDoBody = ({ todos }) => {
+  return (
+    <div className={`todo__body`}>
+      <ul className="todo__list">
+        {todos.map((item) => {
+          return (
+            <ListItem
+              key={item.id}
+              item={item}
+              id={item.id}
+              // statusUpgrade={this.props.statusUpgrade}
+            />
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
 export default ToDoBody;
